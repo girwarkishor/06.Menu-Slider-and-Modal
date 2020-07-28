@@ -11,6 +11,12 @@ $secondary-color: #be2edd;
 body {
   font-family: "Lato", sans-serif;
   margin: 0;
+  transition: transform 0.3s ease;
+
+  &.show-nav {
+    //   Width of nav
+    transform: translateX(200px);
+  }
 }
 
 nav {
@@ -122,6 +128,8 @@ input[type="submit"] {
     transform: translate(-50%, -50%);
     max-width: 100%;
     width: 400px;
+    animation: modalopen;
+    animation-duration: $modal-duration;
 
     .modal-header {
       background: $primary-color;
@@ -161,5 +169,19 @@ input[type="submit"] {
       top: 0;
       right: 0;
     }
+  }
+
+  &.show-modal {
+    display: block;
+  }
+}
+
+@keyframes modalopen {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
   }
 }

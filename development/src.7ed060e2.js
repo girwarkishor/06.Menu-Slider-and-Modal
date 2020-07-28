@@ -193,6 +193,27 @@ module.hot.accept(reloadCSS);
 "use strict";
 
 require("./scss/main.scss");
+
+var toggle = document.getElementById("toggle");
+var close = document.getElementById("close");
+var open = document.getElementById("open");
+var modal = document.getElementById("modal"); // Toggle nav
+
+toggle.addEventListener("click", function () {
+  document.body.classList.toggle("show-nav");
+}); // Show modal
+
+open.addEventListener("click", function () {
+  modal.classList.add("show-modal");
+}); // Hide Modal
+
+close.addEventListener("click", function () {
+  modal.classList.remove("show-modal");
+}); // Hide modal on outside click
+
+window.addEventListener("click", function (e) {
+  e.target == modal ? modal.classList.remove("show-modal") : false;
+});
 },{"./scss/main.scss":"../src/scss/main.scss"}],"C:/Users/girwa/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
